@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-api-self-healing-qe-copilot"
+version = "1.0.0"
+description = "An API test generator and review-first self-healing demo for quality engineering teams."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "AI-API-Self-Healing-QE-Copilot contributors" }]
+dependencies = ["streamlit>=1.40,<2.0", "PyYAML>=6.0,<7.0", "requests>=2.31,<3.0"]
+
+[project.optional-dependencies]
+llm = ["openai>=1.54,<3.0"]
+dev = ["pytest>=8.0,<9.0"]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
